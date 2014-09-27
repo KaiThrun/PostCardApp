@@ -1,4 +1,4 @@
-//
+ //
 //  ViewController.swift
 //  Postcard
 //
@@ -10,6 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    @IBOutlet weak var enterNameTextField: UITextField!
+    
+    @IBOutlet weak var enterAMessageTextfield: UITextField!
+    
+    @IBOutlet weak var mailButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +28,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func sendMailButtonPressed(sender: UIButton) {
+        // code will evaluate when we press the button
+        messageLabel.hidden = false
+        messageLabel.text = enterAMessageTextfield.text
+        enterAMessageTextfield.text = ""
+        enterAMessageTextfield.resignFirstResponder()
+        messageLabel.textColor = UIColor.brownColor()
+        mailButton.setTitle("Mail Sent", forState: UIControlState.Normal)
+    }
 
 }
 
